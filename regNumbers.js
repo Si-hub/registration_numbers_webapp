@@ -14,8 +14,9 @@ module.exports = function regFactoryFunction(pool) {
         await pool.query('delete from regNumbers')
     }
 
-    async function filteringTown() {
-        var whichTown = await pool.query('select ')
+    async function filteringTown(start_string) {
+        if (start_string === 'All')
+            return getReg();
     }
     return {
         getReg,

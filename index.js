@@ -69,7 +69,8 @@ app.post("/reg_numbers", async function(req, res) {
 });
 
 app.post("/filter:town", function(req, res) {
-    let town = req.body.towns
+    let towns = req.body.towns
+
 
     res.render("index");
 });
