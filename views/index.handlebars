@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="topRow">
+        <h1>Registration Numbers</h1>
+    </div>
+    <div class="examples">
+        <h2>e.g CY 123-456 | CA 345-673 | CL 876-895 </h2>
+    </div>
+
+    <form action="/reg_numbers" method="POST">
+        <div class="bottomRow">
+            <div class="errors">
+                <p>{{messages.error}}</p>
+            </div>
+            <input type="text" name="name" value="" placeholder="enter a registration..." class="inputText"
+                id="registration">
+
+        </div>
+        <br>
+        <div class="buttonRow">
+            <button class="button-primary Addbtn" type="submit" name="button">Add Registrations</button>
+        </div>
+
+    </form>
+
+    <br />
+
+    <form action="/filter:town" method="POST">
+        <div class="selector">
+            <h3>Select a Town:</h3>
+            <div class="selectTown">
+                <select name="towns" class="towns">
+                    <option value="All">All Towns</option>
+                    <option value="CY">Bellville</option>
+                    <option value="CA">Cape Town</option>
+                    <option value="CL">Stellenbosch</option>
+                </select>
+
+                <button class="button-primary filterBtn" on type="submit" name="button">Filter</button>
+                <a href="/clear">
+                    Reset
+                </a>
+
+            </div>
+        </div>
+    </form>
+
+
+    <hr>
+
+    <div>
+        <ul>
+            {{#each reg_number}}
+            <li class="displayHere">{{reg_number}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+
+
+
+
+</div>
