@@ -68,11 +68,13 @@ app.post("/reg_numbers", async function(req, res) {
     });
 });
 
-app.post("/filter:town", function(req, res) {
-    let towns = req.body.towns
+app.get("/filter:towns", async function(req, res) {
+    let towns = req.query.towns
+    let allReg = await registration.filteringTown(towns);
 
-
-    res.render("index");
+    res.render("index", {
+        reg_number: allReg
+    });
 });
 
 
