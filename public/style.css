@@ -1,116 +1,125 @@
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* width: 300px;
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* width: 300px;
 height: 300px;
 line-height: 1.6; */
-}
-
-h1 {
-    color: #4BBBA2;
-}
-
-.container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 350px;
-    background-color: #23384E;
-    /* color: white; */
-    padding: 40px;
-    border-radius: 5px;
-}
-
-
-/*make your text box to be rounded corneR*/
-
-.inputText {
-    border-radius: 5px;
-    box-sizing: border-box;
-    height: 28px;
-    padding: 0 30px;
-    letter-spacing: .1rem;
-    line-height: 40px;
-    margin: 0;
-    border: 1px solid;
-}
-
-.topRow {
-    color: rgb(23, 108, 114);
-    width: 100%;
-    font-size: 15px;
-}
-
-.selector h3 {
-    color: white;
-    ;
-}
-
-.button-primary,
-a {
-    border-radius: 5px;
-    box-sizing: border-box;
-    height: 28px;
-    cursor: pointer;
-    text-align: center;
-    /* border: 2px solid #494949; */
-    text-transform: uppercase;
-    background: whitesmoke;
-    color: #393939;
-    transition: all 0.4s ease;
-    display: inline;
-}
-
-.button-primary:hover {
-    color: white;
-    background-color: #434343;
-    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
-}
-
-a {
-    text-decoration: none;
-    padding: 5px;
-    font-size: small;
-}
-
-a:hover {
-    background: #434343;
-    color: white;
-    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
-}
-
-.examples {
-    color: grey;
-    font-size: 9px;
-}
-
-.errors {
-    color: red;
-}
-
-ul {
-    margin: 0em;
-    padding: 0em;
-}
-
-li {
-    list-style: none;
-    padding: 1em 2em;
-    background-color: rgb(231, 231, 22);
-    border: 0.1em solid black;
-    margin: 0.5em;
-    /* Make space between elements*/
-    float: left;
-    border-radius: 5px;
-    list-style: none;
-}
-
-select {
-    background-color: rgb(177, 171, 171);
-    width: 100px;
-    height: 28px;
-    border-radius: 3px;
-    justify-content: center;
-}
+    }
+    
+    h1 {
+        color: #4BBBA2;
+    }
+    
+    .container {
+        margin-right: auto;
+        margin-left: auto;
+        width: 80%;
+        height: 30em;
+        background-color: #23384E;
+        /* color: white; */
+        padding: 40px;
+        border-radius: 5px;
+    }
+    /*make your text box to be rounded corneR*/
+    
+    .inputText {
+        border-radius: 5px;
+        box-sizing: border-box;
+        height: 28px;
+        padding: 0 30px;
+        letter-spacing: .1rem;
+        line-height: 40px;
+        margin: 0;
+        border: 1px solid;
+    }
+    
+    .topRow {
+        color: rgb(23, 108, 114);
+        width: 100%;
+        font-size: 15px;
+    }
+    
+    h3 {
+        color: white;
+        ;
+    }
+    
+    .button-primary,
+    a {
+        border-radius: 5px;
+        box-sizing: border-box;
+        height: 28px;
+        cursor: pointer;
+        text-align: center;
+        /* border: 2px solid #494949; */
+        text-transform: uppercase;
+        background: whitesmoke;
+        color: #393939;
+        transition: all 0.4s ease;
+        display: inline;
+    }
+    
+    .button-primary:hover {
+        color: white;
+        background-color: #434343;
+        text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    }
+    
+    a {
+        text-decoration: none;
+        padding: 5px;
+        font-size: small;
+    }
+    
+    a:hover {
+        background: #434343;
+        color: white;
+        text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    }
+    
+    .examples {
+        color: grey;
+        font-size: 9px;
+    }
+    
+    .errors {
+        color: red;
+    }
+    
+    .success {
+        color: green;
+    }
+    
+    ul {
+        margin: 0em;
+        padding: 0em;
+    }
+    
+    li {
+        list-style: none;
+        padding: 1em 2em;
+        background-color: rgb(231, 231, 22);
+        border: 0.1em solid black;
+        margin: 0.5em;
+        /* Make space between elements*/
+        float: left;
+        border-radius: 5px;
+        list-style: none;
+    }
+    
+    select {
+        background-color: rgb(177, 171, 171);
+        width: 100px;
+        height: 28px;
+        border-radius: 3px;
+        justify-content: center;
+    }
+    
+    #form-container {
+        display: flex;
+        justify-content: space-around;
+    }
+    /* .selectTown {
+        padding: 0 10px;
+    } */

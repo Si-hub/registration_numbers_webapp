@@ -53,10 +53,14 @@ app.get("/", async function(req, res) {
 
 app.post("/reg_numbers", async function(req, res) {
     var name = req.body.name
+    let checkDuplicate = await registration.check(name)
 
-    if (name.startsWith('CY ') || name.startsWith('CA ') || name.startsWith('CL ')) {
-        await registration.setReg(name);
+    if (checkDuplicate !== 0) {
+        req.flash('success', 'This registration is already entered')
         var reg = await registration.getReg();
+    } else if (name.startsWith('CY ') || name.startsWith('CA ') || name.startsWith('CL ')) {
+        await registration.setReg(name);
+        reg = await registration.getReg();
     } else if (!name.startsWith('CY ') || !name.startsWith('CA ') || !name.startsWith('CL ')) {
         req.flash('error', 'Please enter a valid registration')
     }
@@ -68,8 +72,9 @@ app.post("/reg_numbers", async function(req, res) {
     });
 });
 
-app.get("/filter:towns", async function(req, res) {
+app.get("/reg_numbers", async function(req, res) {
     let towns = req.query.towns
+
     let allReg = await registration.filteringTown(towns);
 
     res.render("index", {

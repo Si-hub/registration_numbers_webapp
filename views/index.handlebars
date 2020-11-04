@@ -1,47 +1,56 @@
 <div class="container">
-    <div class="topRow">
-        <h1>Registration Vehicle App!!</h1>
-    </div>
-    <div class="examples">
-        <h2>e.g CY 123-456 | CA 345-673 | CL 876-895 </h2>
-    </div>
 
-    <form action="/reg_numbers" method="POST">
-        <div class="bottomRow">
-            <div class="errors">
-                <p>{{messages.error}}</p>
+    <div id="form-container">
+
+
+        <form action="/reg_numbers" method="POST">
+            <div class="topRow">
+                <h1>Registration Vehicle App!!</h1>
             </div>
-            <input type="text" name="name" value="" placeholder="enter a registration..." class="inputText"
-                id="registration">
+            <div class="examples">
+                <h2>e.g CY 123-456 | CA 345-673 | CL 876-895 </h2>
+            </div>
 
-        </div>
-        <br>
-        <div class="buttonRow">
-            <button class="button-primary Addbtn" type="submit" name="button">Add Registrations</button>
-        </div>
+            <div class="bottomRow">
+                <div class="errors">
+                    <p>{{messages.error}}</p>
+                </div>
+                <div class="success">
+                    <p>{{messages.success}}</p>
+                </div>
+                <input type="text" name="name" value="" placeholder="enter a registration..." class="inputText"
+                    id="registration">
 
-    </form>
+                <button class="button-primary Addbtn" type="submit" name="button">Add Registrations</button>
 
-    <br />
+            </div>
+            <br>
 
-    <form action="/filter:towns" method="GET">
-        <div class="selector">
+
+        </form>
+
+        <br />
+
+        <form action="/reg_numbers" method="GET">
+            <br>
+            <br>
+
+
             <h3>Select a Town:</h3>
             <div class="selectTown">
-                <select name="towns" >
+                <select name="towns">
                     <option value="All">All Towns</option>
                     <option value="1">Bellville</option>
                     <option value="2">Cape Town</option>
                     <option value="3">Stellenbosch</option>
                 </select>
 
-                <input type="submit" value="Filter" class="button-primary filter">
+                <input type="submit" value="Filter" class="button-primary filter" style="">
                 <a href="/clear">Reset</a>
 
             </div>
-        </div>
-    </form>
-
+        </form>
+    </div>
 
     <hr>
 
