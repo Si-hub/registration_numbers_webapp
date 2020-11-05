@@ -8,7 +8,7 @@ node_js:
 
 before_script:
   - psql -c 'create database  regnumber_tests;' -U postgres
-  - psql -U postgres -d my_products_tests -a -f tables.sql
+  - psql -U postgres -d regnumber_tests -a -f tables.sql
 
 services:
   - postgresql
