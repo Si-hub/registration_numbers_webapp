@@ -12,12 +12,7 @@
             </div>
 
             <div class="bottomRow">
-                <div class="errors">
-                    <p>{{messages.error}}</p>
-                </div>
-                <div class="success">
-                    <p>{{messages.success}}</p>
-                </div>
+              
                 <input type="text" name="name" value="" placeholder="enter a registration..." class="inputText"
                     id="registration">
 
@@ -53,7 +48,12 @@
     </div>
 
     <hr>
-
+  <div class="errors">
+                    <p>{{messages.error}}</p>
+                </div>
+                <div class="success">
+                    <p>{{messages.success}}</p>
+                </div>
     <div>
         <ul>
             {{#each reg_number}}

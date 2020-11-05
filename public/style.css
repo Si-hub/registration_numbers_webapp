@@ -8,18 +8,21 @@ line-height: 1.6; */
     }
     
     h1 {
-        color: #4BBBA2;
+        color: rgb(5, 0, 0);
     }
     
     .container {
         margin-right: auto;
         margin-left: auto;
         width: 80%;
-        height: 30em;
-        background-color: #23384E;
+        height: 34em;
+        background-color: darkgoldenrod;
         /* color: white; */
         padding: 40px;
         border-radius: 5px;
+        font-size: 1em;
+        font-weight: 400;
+        font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
     /*make your text box to be rounded corneR*/
     
@@ -47,15 +50,15 @@ line-height: 1.6; */
     
     .button-primary,
     a {
-        border-radius: 5px;
+        border-radius: 4px;
         box-sizing: border-box;
         height: 28px;
         cursor: pointer;
         text-align: center;
-        /* border: 2px solid #494949; */
+        border: 1px solid #bbb;
         text-transform: uppercase;
         background: whitesmoke;
-        color: #393939;
+        color: #434343;
         transition: all 0.4s ease;
         display: inline;
     }
@@ -79,7 +82,7 @@ line-height: 1.6; */
     }
     
     .examples {
-        color: grey;
+        color: #434343;
         font-size: 9px;
     }
     
@@ -88,7 +91,7 @@ line-height: 1.6; */
     }
     
     .success {
-        color: green;
+        color: darkgreen;
     }
     
     ul {
@@ -99,10 +102,9 @@ line-height: 1.6; */
     li {
         list-style: none;
         padding: 1em 2em;
-        background-color: rgb(231, 231, 22);
+        background-color: lightgrey;
         border: 0.1em solid black;
         margin: 0.5em;
-        /* Make space between elements*/
         float: left;
         border-radius: 5px;
         list-style: none;
@@ -120,6 +122,10 @@ line-height: 1.6; */
         display: flex;
         justify-content: space-around;
     }
-    /* .selectTown {
-        padding: 0 10px;
-    } */
+    
+    hr {
+        margin-top: 3rem;
+        margin-bottom: 3.5rem;
+        border-width: 0;
+        border-top: 1px solid #E1E1E1;
+    }

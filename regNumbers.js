@@ -3,6 +3,7 @@ module.exports = function regFactoryFunction(pool) {
     async function setReg(enteredReg) {
 
         let town_tag = enteredReg.substring(0, 2)
+            // console.log(town_tag)
         let town_id = await pool.query("select id from towns where start_string=$1", [town_tag])
         let townsid = town_id.rows[0].id
         let selectReg;

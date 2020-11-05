@@ -52,17 +52,22 @@ app.get("/", async function(req, res) {
 });
 
 app.post("/reg_numbers", async function(req, res) {
+
     var name = req.body.name
+    name = name.toUpperCase()
     let checkDuplicate = await registration.check(name)
 
     if (checkDuplicate !== 0) {
-        req.flash('success', 'This registration is already entered')
+        req.flash('success', 'This registration is already entered!')
         var reg = await registration.getReg();
+
     } else if (name.startsWith('CY ') || name.startsWith('CA ') || name.startsWith('CL ')) {
         await registration.setReg(name);
         reg = await registration.getReg();
+
     } else if (!name.startsWith('CY ') || !name.startsWith('CA ') || !name.startsWith('CL ')) {
-        req.flash('error', 'Please enter a valid registration')
+        req.flash('error', 'Enter a Registration as required: CA 123456/CA 123-456')
+        reg = await registration.getReg();
     }
 
 
