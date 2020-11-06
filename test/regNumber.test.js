@@ -34,7 +34,7 @@ describe('The regNumbers function', function() {
     it('should set registration number for Cape town', async function() {
         let FactoryFunction = Registrations(pool);
 
-        assert.equal(await FactoryFunction.setReg("CA 123 456"), true);
+        assert.equal(await FactoryFunction.setReg('"CA 123 456"'), true);
 
     });
 
@@ -104,7 +104,7 @@ describe('The regNumbers function', function() {
 
         let FactoryFunction = Registrations(pool);
 
-        assert.deepEqual(await FactoryFunction.getReg(2), { reg_number: "123" },
+        assert.deepEqual(await FactoryFunction.setReg(2), { reg_number: "123" },
             'Enter a Registration as required: CA 123456/CA 123-456');
     });
 
