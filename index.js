@@ -57,20 +57,21 @@ app.post("/reg_numbers", async function(req, res) {
     name = name.toUpperCase()
     let checkDuplicate = await registration.check(name)
 
-    if (checkDuplicate !== 0) {
-        req.flash('success', 'This registration is already entered!')
-        var reg = await registration.getReg();
+    if (name.length <= 10) {
+        if (checkDuplicate !== 0) {
+            req.flash('success', 'This registration is already entered!')
+            var reg = await registration.getReg();
 
-    } else if (name.startsWith('CY ') || name.startsWith('CA ') || name.startsWith('CL ')) {
-        await registration.setReg(name);
-        reg = await registration.getReg();
+        } else if (name.startsWith('CY ') || name.startsWith('CA ') || name.startsWith('CL ')) {
+            await registration.setReg(name);
+            reg = await registration.getReg();
 
-    } else if (!name.startsWith('CY ') || !name.startsWith('CA ') || !name.startsWith('CL ')) {
-        req.flash('error', 'Enter a Registration as required: CA 123456/CA 123-456')
-        reg = await registration.getReg();
+        } else if (!name.startsWith('CY ') || !name.startsWith('CA ') || !name.startsWith('CL ')) {
+            req.flash('error', 'Enter a Registration as required: CA 123456/CA 123-456')
+            reg = await registration.getReg();
+        }
+
     }
-
-
 
     res.render("index", {
         reg_number: reg
@@ -90,6 +91,7 @@ app.get("/reg_numbers", async function(req, res) {
 
 app.get("/clear", async function(req, res) {
     await registration.clearRegNo()
+    req.flash('success', 'The Database has been successfully reseted!')
     res.redirect("/")
 });
 
