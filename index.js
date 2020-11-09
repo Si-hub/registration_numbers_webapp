@@ -58,6 +58,10 @@ app.post("/reg_numbers", async function(req, res) {
     let checkDuplicate = await registration.check(name)
 
     if (name.length <= 10) {
+        // req.flash('success', 'The regNo is too long, Enter reg between 0 to 10 characters')
+        // await registration.setReg(name);
+        // await registration.getReg();
+
         if (checkDuplicate !== 0) {
             req.flash('success', 'This registration is already entered!')
             var reg = await registration.getReg();

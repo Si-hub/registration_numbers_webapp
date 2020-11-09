@@ -4,9 +4,11 @@ module.exports = function regFactoryFunction(pool) {
 
         let town_tag = enteredReg.substring(0, 2)
             // console.log(town_tag)
+            // var enteredReg = enteredReg.length <= 10
         let town_id = await pool.query("select id from towns where start_string=$1", [town_tag])
         let townsid = town_id.rows[0].id
         let selectReg;
+
 
         if (townsid > 0) {
             selectReg = await pool.query('select reg_number from regNumbers where reg_number=$1', [enteredReg])
