@@ -8,7 +8,7 @@ module.exports = function regFactoryFunction(pool) {
         let townsid = town_id.rows[0].id
         let selectReg;
 
-        if (townsid > 0) {
+        if (townsid.length <= 10) {
             selectReg = await pool.query('select reg_number from regNumbers where reg_number=$1', [enteredReg])
         }
 

@@ -31,10 +31,17 @@ describe('The regNumbers function', function() {
 
     });
 
-    it('should set registration number for Cape town', async function() {
+    it('should return all registrations from db', async function() {
         let FactoryFunction = Registrations(pool);
+        await FactoryFunction.setReg("CY 789 546");
+        await FactoryFunction.setReg("CA 123 456");
+        await FactoryFunction.setReg("CL 789 258")
 
-        assert.equal(await FactoryFunction.setReg('"CA 123 456"'), true);
+        assert.deepStrictEqual(await FactoryFunction.getReg(), [{ reg_number: "CY 789 546" },
+            { reg_number: "CA 123 456" },
+            { reg_number: "CL 789 258" },
+
+        ]);
 
     });
 
@@ -100,13 +107,6 @@ describe('The regNumbers function', function() {
         );
     });
 
-    it('should return a message if reg is not according the required format', async function() {
-
-        let FactoryFunction = Registrations(pool);
-
-        assert.deepEqual(await FactoryFunction.setReg(2), { reg_number: "123" },
-            'Enter a Registration as required: CA 123456/CA 123-456');
-    });
 
     after(function() {
         pool.end();
