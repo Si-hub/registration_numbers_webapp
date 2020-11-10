@@ -57,29 +57,31 @@ app.post("/reg_numbers", async function(req, res) {
     name = name.toUpperCase()
     let checkDuplicate = await registration.check(name)
 
-    // if (name.length <= 10) {
-    // req.flash('success', 'The regNo is too long, Enter reg between 0 to 10 characters')
-    // await registration.setReg(name);
-    // await registration.getReg();
-
-    if (checkDuplicate !== 0) {
-        req.flash('success', 'This registration is already entered!')
-        var reg = await registration.getReg();
-
-    } else if (name.startsWith('CY ') || name.startsWith('CA ') || name.startsWith('CL ')) {
+    if (name.length < 11) {
         await registration.setReg(name);
-        reg = await registration.getReg();
 
-    } else if (!name.startsWith('CY ') || !name.startsWith('CA ') || !name.startsWith('CL ')) {
-        req.flash('error', 'Enter a Registration as required: CA 123456/CA 123-456')
-        reg = await registration.getReg();
+        await registration.getReg();
+
+        if (checkDuplicate !== 0) {
+            req.flash('success', 'This registration is already entered!')
+            var reg = await registration.getReg();
+
+        } else if (name.startsWith('CY ') || name.startsWith('CA ') || name.startsWith('CL ')) {
+            await registration.setReg(name);
+            reg = await registration.getReg();
+
+        } else if (!name.startsWith('CY ') || !name.startsWith('CA ') || !name.startsWith('CL ')) {
+            req.flash('error', 'Enter a Registration as required: CA 123456/CA 123-456')
+            reg = await registration.getReg();
+        }
+    } else {
+        req.flash('error', 'The regNo is too long, Enter reg between 0 to 10 characters')
+
     }
-
-    // }
-
     res.render("index", {
         reg_number: reg
     });
+
 });
 
 app.get("/reg_numbers", async function(req, res) {
