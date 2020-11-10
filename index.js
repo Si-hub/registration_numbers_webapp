@@ -58,25 +58,30 @@ app.post("/reg_numbers", async function(req, res) {
     let checkDuplicate = await registration.check(name)
 
     if (name.length < 11) {
-        await registration.setReg(name);
 
-        await registration.getReg();
+        // await registration.setReg(name);
+        // await registration.getReg();
 
+
+        var reg = await registration.getReg();
         if (checkDuplicate !== 0) {
             req.flash('success', 'This registration is already entered!')
-            var reg = await registration.getReg();
-
+            reg;
+        } else if (!name) {
+            req.flash('error', 'Please enter the registration number above!')
+                // await registration.setReg(name);
+            reg;
         } else if (name.startsWith('CY ') || name.startsWith('CA ') || name.startsWith('CL ')) {
             await registration.setReg(name);
-            reg = await registration.getReg();
+            reg;
 
         } else if (!name.startsWith('CY ') || !name.startsWith('CA ') || !name.startsWith('CL ')) {
             req.flash('error', 'Enter a Registration as required: CA 123456/CA 123-456')
-            reg = await registration.getReg();
+            reg;
         }
     } else {
         req.flash('error', 'The regNo is too long, Enter reg between 0 to 10 characters')
-
+        reg;
     }
     res.render("index", {
         reg_number: reg
