@@ -47,8 +47,10 @@ app.use(express.static('public'))
 
 
 app.get("/", async function(req, res) {
-
-    res.render("index");
+    var reg = await registration.getReg();
+    res.render("index", {
+        reg_number: reg
+    });
 });
 
 app.post("/reg_numbers", async function(req, res) {
